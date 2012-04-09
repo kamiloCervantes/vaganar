@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html><head>
+		<title>VaGanar.com</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<?= $this->headLink() ?>
+	</head>
+	<body>
+		<header class="headerPage">
+			<div id="boxLogo">
+                            <a href="/">
+                                <ul>
+					<li><img src="<?= $this->baseUrl()?>/imgs/logo-1st.png" class="centerHeader"></li>
+					<li><h1 id="text-logo">VaGanar.com</h1></li>
+				</ul>
+                            </a>
+			</div>
+                    <div id="login">
+                        <a href="/Auth/login">Iniciar Sesión</a>
+                    </div>
+			<!--<div id="profile-options">
+				<ul>
+					<li class="flotar"><img src="imgs/foto.png" class="centrarimg"></li>
+					<li class="flotar">
+						<ul>
+							<li><a href="perfil.html">Mi Perfil</a></li>
+							<li><a href="test.html">La Carrera</a></li>
+							<li><a href="#">Salir</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div> -->
+		</header>
+		<nav>
+			<img class="deco1" src="<?= $this->baseUrl()?>/imgs/deco.png">
+			<ul id="navprincipal">
+				<li><a href="test.html">La Carrera</a></li>
+				<li><a href="Arena.html">Zona de Retos</a></li>
+				<li><a href="Comprar.html">Adquirir Cartas</a></li>
+				<li><a href="Tienda.html">Tienda Virtual</a></li>
+			</ul>
+			<img class="deco2" src="<?= $this->baseUrl()?>/imgs/deco.png">
+		</nav>
+		<div id="base-contenido">
+			
+                                    <?php echo $this->layout()->content; ?>
+				
+		</div>
+		<footer>
+			<h5>Diseño por: Deimer Herrera © Copyright MaratonQM</h5>
+		</footer>
+</body>
+</html>
+<!-- www.000webhost.com Analytics Code -->
