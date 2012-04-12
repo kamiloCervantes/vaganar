@@ -8,9 +8,6 @@ function init()
     cargarHistorias();
     setUpCarrera();
     $('.prueba').click(function(){
-        console.log($('#answer').val());
-        $('#answer').val('');
-        console.log($('#answer').val());
         var idprueba = $(this).attr('id');
         cargarPrueba($(this).attr('id'));
         $('#fancybox-close').click(function(){
@@ -152,7 +149,7 @@ function respuestaCorrecta(){
 }
 
 function pruebasFactory(idhistoria){
-    var prueba_html = '<div style="display:none" class=".historias"><div id="historia-prueba">'
+    var prueba_html = '<div style="display:none" class="historias"><div id="historia-prueba">'
                       +      '<div class="row">'
                       +         '<h2>'+historias[idhistoria].titulo+' ('+historias[idhistoria].puntos+' puntos)</h2>'
                       +      '<hr>'
