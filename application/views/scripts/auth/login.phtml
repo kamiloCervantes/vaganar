@@ -1,4 +1,8 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Auth</b> and script/action name <b>login</b></p>
+<div id="loginform">
+    <div class="box">
+    <h2>Iniciar Sesión</h2>
+    <hr/>
+    <?php if($this->message) echo '<div class="alert error"><p>'.$this->message.'<p></div>'; ?>
+    <?= $this->loginform ?>
+    </div>
 </div>

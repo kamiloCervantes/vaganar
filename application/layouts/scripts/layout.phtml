@@ -3,6 +3,7 @@
 		<title>VaGanar.com</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<?= $this->headLink() ?>
+                <?= $this->headScript() ?>
 	</head>
 	<body>
 		<header class="headerPage">
@@ -14,26 +15,31 @@
 				</ul>
                             </a>
 			</div>
-                    <div id="login">
-                        <a href="/Auth/login">Iniciar Sesión</a>
-                    </div>
-			<!--<div id="profile-options">
+                    
+                    <?php 
+                    if($this->identity){ ?>
+			<div id="profile-options">
 				<ul>
 					<li class="flotar"><img src="imgs/foto.png" class="centrarimg"></li>
 					<li class="flotar">
 						<ul>
 							<li><a href="perfil.html">Mi Perfil</a></li>
-							<li><a href="test.html">La Carrera</a></li>
+							<li><a href="/Carrera">La Carrera</a></li>
 							<li><a href="#">Salir</a></li>
 						</ul>
 					</li>
 				</ul>
-			</div> -->
+			</div>
+                     <?php } else {  ?>
+                    <div id="login">
+                        <a href="/Auth/login">Iniciar Sesión</a>
+                    </div>
+                     <?php } ?>
 		</header>
 		<nav>
-			<img class="deco1" src="<?= $this->baseUrl()?>/imgs/deco.png">
+			<img class="deco1" src="imgs/deco.png">
 			<ul id="navprincipal">
-				<li><a href="test.html">La Carrera</a></li>
+				<li><a href="/Carrera">La Carrera</a></li>
 				<li><a href="Arena.html">Zona de Retos</a></li>
 				<li><a href="Comprar.html">Adquirir Cartas</a></li>
 				<li><a href="Tienda.html">Tienda Virtual</a></li>
@@ -50,4 +56,4 @@
 		</footer>
 </body>
 </html>
-<!-- www.000webhost.com Analytics Code -->
+

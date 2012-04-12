@@ -1304,3 +1304,116 @@ div#bot-comprar-modal-test h5{
 div#bot-comprar-modal h5{
 	margin-left:20px;
 }
+
+#loginform {
+    width: 940px;  
+}
+
+#loginform h2{
+    font-size: 24px;
+}
+
+#loginform div.box{
+    margin: 0 auto;
+    padding: 4em;
+}
+
+.alert{
+    width: 100%;
+    height: auto;
+    background: #ccc;
+    padding: 0.5em;
+    margin-top: 0.5em;
+}
+
+.error{
+    border: 1px solid red;
+    background: #ff7373;
+}
+
+form input[type=submit]{
+    margin-top: 0.5em;
+}
+
+.hidden{
+    display: none;
+}
+
+#historia-prueba{
+    width: 640px;
+    height: 480px;
+}
+
+.row{
+    width: 100%;
+    
+}
+
+.span6{
+    width: 47%;
+    margin: 1%;
+    display: inline-table;
+}
+
+.center{
+    text-align: center;
+}
+
+.sponsor p, .respuestas p{
+    display:inline;
+}
+
+p.sponsor{
+    font-weight: bold;
+}
+
+.pregunta{
+    margin-top: 3px;
+    padding: 2px;
+}
+
+.pregunta p{
+    font-size: 16px;
+    text-align: justify;
+}
+
+.respuestas{
+    display: block;
+    margin-top: 16px;
+    margin-left: 5px;
+}
+
+.respuestas input{
+    width: 100%;
+    border: 1px solid #003;
+    margin-top: 3px;
+    padding: 3px;
+    color: #000;
+    border-radius: 3px;
+    font-family: "Arial", "Verdana", "sans";
+    
+}
+
+.respuestas input.btn{
+    background: #003;
+    cursor: pointer;
+    color: #fff;
+}
+
+.respuestas input.btn:hover{
+    background: #24B300;
+    border: 1px solid #24B300;
+}
+
+.controles{
+    margin-top: 15px;
+}
+
+.controles select{
+    width: 80%;
+}
+
+.controles li{
+    margin-top: 3px;
+}
+

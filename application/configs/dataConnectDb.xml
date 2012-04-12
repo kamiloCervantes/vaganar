@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <databases>
+        <database databasemanager="postgresql" conf="default">
+        <driver>pdo_pgsql</driver>
+        <host>127.0.0.1</host>
+        <dbname>bd_vaganar</dbname>
+        <username>postgres</username>
+        <pass>danger8931</pass>
+        </database>
+</databases>
