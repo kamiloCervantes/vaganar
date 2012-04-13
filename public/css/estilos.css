@@ -1417,3 +1417,10 @@ p.sponsor{
     margin-top: 3px;
 }
 
+.superada{
+    margin-left: 18px;
+    width: 100%;
+    padding-left:20px;
+    background: url('../imgs/success.png') no-repeat 0px 3px;
+    color: green;
+}
