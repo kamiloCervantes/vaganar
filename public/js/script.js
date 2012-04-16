@@ -6,6 +6,8 @@ function init()
 {
     setUpCarrera();
     cargarHistorias();
+    actualizarPruebas();
+
     $('.prueba').click(function(){
         var idprueba = $(this).attr('id');
         cargarPrueba($(this).attr('id'));
@@ -13,6 +15,7 @@ function init()
             $('.historias').remove();
             actualizarEstadisticas();
             actualizarPruebas();
+           
         });
         $('#respuesta #enviar').click(function(){
             //validarRespuesta(idprueba, $(this).attr('id')); 
@@ -20,6 +23,10 @@ function init()
         });
     });
     $('.prueba').fancybox();
+}
+
+function generarJSON(array){
+    console.log($.toJSON(array));
 }
 
 /* carrera */
@@ -40,37 +47,22 @@ function pruebaCorrecta(idprueba){
 }
 
 function pruebaIncorrecta(idprueba){
-    $('historia'+idprueba).css('background','red');
+    
 }
 
-function addHistoria(titulo, logo, logo_max, patrocinador, patrocinador_logo, enunciado, puntos, respuesta){
-    var tmp = [];
+function addHistoria(posicion, idprueba, titulo, logo, logo_max, patrocinador, patrocinador_logo, enunciado, puntos, respuesta){
+    var tmp = {};
     tmp.titulo = titulo; 
     tmp.logo = logo; 
     tmp.logo_max = logo_max;
     tmp.patrocinador = patrocinador;
     tmp.patrocinador_logo = patrocinador_logo;
     tmp.enunciado = enunciado;
-    tmp.respuestas = [];
     tmp.cartas = [];
     tmp.puntos = puntos;
     tmp.respuesta = respuesta;
-    carrera.historias.push(tmp);
-}
-
-function addHistoria2(titulo, logo, logo_max, patrocinador, patrocinador_logo, enunciado, puntos, correcta){
-    var tmp = [];
-    tmp.titulo = titulo; 
-    tmp.logo = logo; 
-    tmp.logo_max = logo_max;
-    tmp.patrocinador = patrocinador;
-    tmp.patrocinador_logo = patrocinador_logo;
-    tmp.enunciado = enunciado;
-    tmp.respuestas = [];
-    tmp.cartas = [];
-    tmp.puntos = puntos;
-    tmp.correcta = correcta;
-    carrera.historias.push(tmp);
+    tmp.idprueba = idprueba;
+    carrera.historias[posicion] = tmp;
 }
 
 function addRespuestas(idhistoria, respuestas){
@@ -90,13 +82,12 @@ function setUpCarrera(){
     carrera.respondidas = [];
     carrera.correctas = [];
     carrera.incorrectas = [];
-    carrera.historias = [];
+    carrera.historias = {};
 }
 
 function validarRespuesta(idprueba, respuesta){
     if(carrera.respondidas.indexOf(idprueba) == -1){
         carrera.respondidas.push(idprueba);
-        console.log(carrera.historias[idprueba].respuesta+' == '+respuesta);
         if(carrera.historias[idprueba].respuesta == respuesta){
             carrera.correctas.push(idprueba);
             respuestaCorrecta();
@@ -112,28 +103,18 @@ function validarRespuesta(idprueba, respuesta){
     }
 }
 
-function validarRespuesta2(idprueba, respuesta){
-    if(carrera.respondidas.indexOf(idprueba) == -1){
-        carrera.respondidas.push(idprueba);
-        if(carrera.historias[idprueba].correcta == respuesta){
-            carrera.correctas.push(idprueba);
-            respuestaCorrecta();
-            carrera.puntos_acumulados = parseInt(carrera.puntos_acumulados) + parseInt(historias[idprueba].puntos); 
-        }
-        else{
-            carrera.incorrectas.push(idprueba);
-            respuestaEquivocada();
-        }
-    }       
-    else{
-        respuestaActual(idprueba);
-    }
+function getLength(Object){
+    var count = 0;
+    for(var i in Object){
+        count++;
+    }    
+    return parseInt(count);
 }
 
 function actualizarEstadisticas(){
     $('#puntos a').text(carrera.puntos_acumulados);
     $('#pruebas a').text(carrera.respondidas.length);
-    var progreso = (carrera.respondidas.length/carrera.historias.length)*100;
+    var progreso = (carrera.respondidas.length/getLength(carrera.historias))*100;
     $('#progreso a').text(progreso+'%');
 }
 
@@ -213,51 +194,6 @@ function pruebasFactory(idhistoria){
 
 }
 
-function pruebasFactory2(idhistoria){
-    var prueba_html = '<div style="display:none" class=".historias"><div id="historia-prueba">'
-                      +      '<div class="row">'
-                      +         '<h2>'+carrera.historias[idhistoria].titulo+' ('+carrera.historias[idhistoria].puntos+' puntos)</h2>'
-                      +      '<hr>'
-                      +     ' <div class="span6">'
-                      +         ' <div class="center">'
-                      +             '<img src="'+carrera.historias[idhistoria].logo_max+'" style="width: 200px;">'
-                      +         '</div>'
-                      +      '</div>'
-                      +      '<div class="span6" style="float:right;">'
-                      +          '<div class="sponsor">'
-                      +              '<p class="sponsor">Patrocinador:</p>'
-                      +              '<img src="'+carrera.historias[idhistoria].patrocinador_logo+'">'
-                      +              '<p>'+carrera.historias[idhistoria].patrocinador+'</p>'
-                      +          '</div>'
-                      +          '<div class="pregunta">'
-                      +              '<p>'+carrera.historias[idhistoria].enunciado+'</p>'
-                      +              '<ul class="respuestas" id="respuesta">'
-                                      for(i=0;i<carrera.historias[idhistoria].respuestas.length;i++)
-                                          {
-                                             prueba_html += '<li><input type="button" id="'+i+'" value="'+carrera.historias[idhistoria].respuestas[i]+'"></li>'
-                                          }
-                      prueba_html += '</ul>'
-                      +              '<ul class="controles">'
-                      +                  '<li>'
-                      +                      '<select>'
-                      +                          '<option>Seleccione una carta...</option>'
-                                      for(i=0;i<carrera.historias[idhistoria].cartas.length;i++)
-                                          {
-                                             prueba_html += '<option>'+carrera.historias[idhistoria].cartas[i]+'</option>'
-                                          }
-                     
-                      prueba_html += '</select>'
-                      +                      '<input type="button" value="Usar"/>'
-                      +                  '</li>'
-                      +              '</ul>'
-                      +          '</div>'
-                      +      '</div>'
-                      +   '</div>'
-                      +   '</div></div>';
-      return prueba_html;
-
-}
-
 function historiasFactory(idhistoria){
     var history_html = '<div class="table-cell"><div class="historys" id="historia'+(2*idhistoria)+'">' 
                             + '<header><h4>'+carrera.historias[2*idhistoria].titulo+'</h4></header>'
@@ -310,6 +246,7 @@ function cargarHistorias(){
     
     //historia 1
     addHistoria(
+                0,23,
                 'Prueba 1',
                 'imgs/chica-aguila.jpg',
                 'imgs/chica-aguila-max.jpg',
@@ -322,6 +259,7 @@ function cargarHistorias(){
     
     //historia 2
     addHistoria(
+                1,33,
                 'Prueba Chevrolet',
                 'imgs/camaro.jpg',
                 'imgs/camaro.jpg',
@@ -334,7 +272,8 @@ function cargarHistorias(){
     
     //historia 3
     addHistoria(
-                'Prueba 1',
+                2,89,
+                'Prueba 3',
                 'imgs/chica-aguila.jpg',
                 'imgs/chica-aguila-max.jpg',
                 'Bavaria',
@@ -346,6 +285,7 @@ function cargarHistorias(){
                            
      //historia 4
     addHistoria(
+                3,87,
                 'Prueba 4',
                 'imgs/chica-aguila.jpg',
                 'imgs/chica-aguila-max.jpg',
