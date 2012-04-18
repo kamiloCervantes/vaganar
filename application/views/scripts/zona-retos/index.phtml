@@ -22,7 +22,7 @@
     </div>
     <section class="parte-central-arena">	
             <h1 class="alinear-h1"><img src="imgs/rankin.png">Ranking de Jugadores</h1>
-            <div class="cont-arena">
+            <div class="cont-arena" id="ranking">
                     <table>
                         <thead>
                             <tr>
@@ -32,43 +32,7 @@
                                 <td class="borde-radius2">Employee</td>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Giacomo Guilizzoni Founder &amp; CEO</td>
-                                <td class="alinear">1</td>
-                                <td class="alinear"><a href="#">Ver Cartas</a></td>
-                                <td class="alinear">5300</td>
-                                <td class="centrar"><img src="imgs/check.png"></td>
-                            </tr>
-                            <tr>
-                                <td>Guido Jack Guilizzoni</td>
-                                <td class="alinear">2</td>
-                                <td class="alinear"><a href="#">Ver Cartas</a></td>
-                                <td class="alinear">5233</td>
-                                <td class="centrar"><img src="imgs/check.png"></td>
-                            </tr>
-                            <tr>	
-                                <td>Marco Buttom Tuttofare</td>
-                                <td class="alinear">3</td>
-                                <td class="alinear"><a href="#">Ver Cartas</a></td>
-                                <td class="alinear">5122</td>
-                                <td class="centrar"><img src="imgs/check.png"></td>
-                            </tr>
-                            <tr>
-                                <td>Mariah Maclachlan Better Half</td>
-                                <td class="alinear">3</td>
-                                <td class="alinear"><a href="#">Ver Cartas</a></td>
-                                <td class="alinear">5122</td>
-                                <td class="centrar"><img src="imgs/check.png"></td>
-                            </tr>
-                            <tr>
-                                <td>Valerie Liberty COO WOW! Division</td>
-                                <td class="alinear">4</td>
-                                <td class="alinear"><a href="#">Ver Cartas</a></td>
-                                <td class="alinear">5060</td>
-                                <td class="centrar"><img src="imgs/check.png"></td>
-                            </tr>
-                        </tbody>
+
                     </table>
             </div>
             <input class="caja-buscar" name="caja-buscar" type="text">
@@ -101,13 +65,30 @@
                     <h2 class="centrar-miscartas"><img src="imgs/icono-cartas.png" class="centrarimg">Mis Cartas</h2>
             </div>
             <div id="base-cartas">
-
-                    <img class="centrar-naipe" src="imgs/cartas-arena-1.png">
+                    <a href="#carta-reto-box" id="retar"><img class="centrar-naipe" src="imgs/cartas-arena-1.png"></a>
                     <img class="centrar-naipe" src="imgs/cartas-arena-2.png">
                     <img class="centrar-naipe" src="imgs/cartas-arena-3.png">
                     <img class="centrar-naipe" src="imgs/cartas-arena-4.png">
                     <img class="centrar-naipe" src="imgs/cartas-arena-2.png">
-
             </div>
     </section>
+</div>
+<div style="display:none">
+    <div id="carta-reto-box" class="modal">
+        <h2>Retar a un jugador</h2>
+        <hr/>
+        <p>Escriba el nombre del jugador que desea retar:</p>
+        <input type="text" value="" name="jugador" id="jugador">
+        <div id="jugadores">
+           <table>                   
+           </table>
+        </div>
+        <div id="apuesta">
+            <p>Puntos apostados:</p>
+            <input type="text" value="" name="apuesta" id="apuesta">
+        </div>
+        <hr/>
+        <input type="button" value="Enviar Reto"/>
+        <input type="button" value="Cancelar"/>
+    </div>
 </div>

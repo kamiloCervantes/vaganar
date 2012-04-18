@@ -1,21 +1,24 @@
 $(init);
 
 var carrera = [];
+var zonaretos = [];
 
-function init()
-{
+function init(){
+    initCarrera();
+    initZonaRetos();
+}
+
+function initCarrera(){
     setUpCarrera();
     cargarHistorias();
     actualizarPruebas();
-
     $('.prueba').click(function(){
         var idprueba = $(this).attr('id');
         cargarPrueba($(this).attr('id'));
         $('#fancybox-close').click(function(){
             $('.historias').remove();
             actualizarEstadisticas();
-            actualizarPruebas();
-           
+            actualizarPruebas();         
         });
         $('#respuesta #enviar').click(function(){
             //validarRespuesta(idprueba, $(this).attr('id')); 
@@ -25,9 +28,101 @@ function init()
     $('.prueba').fancybox();
 }
 
+function initZonaRetos(){
+    setUpZonaRetos();
+    cargarJugadores();
+    cargarRetadores();
+    $('#retar').fancybox();
+}
+
 function generarJSON(array){
     console.log($.toJSON(array));
 }
+
+function getLength(Object){
+    var count = 0;
+    for(var i in Object){
+        count++;
+    }    
+    return parseInt(count);
+}
+
+/* zona de retos */
+
+function setUpZonaRetos(){
+    zonaretos.retos = {};
+    zonaretos.notificaciones = [];
+    zonaretos.jugadores = [];
+    zonaretos.cartas = [];
+    zonaretos.retadores = [];
+}
+
+function addRetador(nombre, idjugador){
+    var tmp = [];
+    tmp.nombre = nombre;
+    tmp.idjugador = idjugador;
+    zonaretos.retadores.push(tmp);
+}
+
+function factoryRetadores(){
+    var retadores_html = [];
+    for(var i=0;i<zonaretos.retadores.length;i++){
+        if(i==0)
+            retadores_html.push('<tr>');
+        else
+            if(i>0 && i%4==0)
+                retadores_html.push('</tr><tr>');
+        retadores_html.push('<td class="wrap"><input type="radio" name="retado">'+zonaretos.retadores[i].nombre+'</td>');
+        if(i==(zonaretos.retadores.length - 1))
+             retadores_html.push('</tr>');
+    }
+    return retadores_html.join('');
+}
+
+function cargarRetadores(){
+    addRetador('Kamilo Cervantes',23);
+    addRetador('Kamilo Cervantes',23);
+    addRetador('Kamilo Cervantes',23);
+    addRetador('Kamilo Cervantes',23);
+    addRetador('Kamilo Cervantes',23);
+    addRetador('Kamilo Cervantes',23);
+    addRetador('Kamilo Cervantes',23);
+    addRetador('Kamilo Cervantes',23);
+    $('#jugadores table').append(factoryRetadores());
+}
+
+function addJugador(nombre,rank,puntos,online,idjugador){
+    var tmp = [];
+    tmp.nombre = nombre;
+    tmp.rank = rank;
+    tmp.cartas = [];
+    tmp.puntos = puntos;
+    tmp.online = online;
+    tmp.idjugador = idjugador;
+    zonaretos.jugadores.push(tmp);
+}
+
+function factoryJugadores(){
+    var jugadores_html = '';
+    for(var i=0;i<zonaretos.jugadores.length;i++){
+        jugadores_html += '<tr><td>'+zonaretos.jugadores[i].nombre+'</td><td class="alinear">'+zonaretos.jugadores[i].rank+'</td><td class="alinear"><a href="#">Ver Cartas</a></td><td class="alinear">'+zonaretos.jugadores[i].puntos+'</td><td class="centrar"><img src="imgs/check.png"></td></tr>';
+    }
+    return jugadores_html;
+}
+
+function cargarJugadores(){
+    addJugador('Kamilo Cervantes',1,8299,1,88);
+    addJugador('Kamilo Cervantes',2,8199,1,86);
+    addJugador('Kamilo Cervantes',3,6899,1,82);
+    addJugador('Kamilo Cervantes',4,6699,1,51);
+    addJugador('Kamilo Cervantes',5,8299,1,68);
+    addJugador('Kamilo Cervantes',6,8199,1,36);
+
+    $('#ranking table').append(factoryJugadores());
+}
+
+/* fin zona de retos */
+
 
 /* carrera */
 
@@ -101,14 +196,6 @@ function validarRespuesta(idprueba, respuesta){
     else{
         respuestaActual(idprueba);
     }
-}
-
-function getLength(Object){
-    var count = 0;
-    for(var i in Object){
-        count++;
-    }    
-    return parseInt(count);
 }
 
 function actualizarEstadisticas(){
