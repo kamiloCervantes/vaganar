@@ -501,14 +501,19 @@ footer h5{
 
 .last-race-tienda {
 	width:198px;
-	height:158px;
+	max-height:500px;
+        height: auto;
 	margin-left:26px;
 	background:#ecf2fe;
 	-moz-border-radius: 7px 7px 0px 0px ;
 	-webkit-border-radius: 7px 7px 0px 0px ;
 	box-shadow: 0px 0px 1px #999;
 	margin-bottom:0;
+        overflow:auto;
+        overflow-x:hidden;
 }
+
+
 
 .last-race-index{
 	width:198px;
@@ -791,7 +796,7 @@ h4#centrar-administrar {
 }
 
 .last-race-tienda ul#ul-main-arena{
-	padding-left: 45px;
+	padding-left: 30px;
 	padding-bottom:30px;
 }
 
