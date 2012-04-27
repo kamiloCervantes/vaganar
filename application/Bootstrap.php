@@ -15,8 +15,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                          ->appendStylesheet($view->baseUrl().'/css/estilos.css')
                          ->appendStylesheet($view->baseUrl().'/js/fancybox/jquery.fancybox-1.3.4.css');
         $view->headScript()->appendFile($view->baseUrl().'/js/jquery.js','text/javascript')
-                           ->appendFile($view->baseUrl().'/js/jquery.json-2.3.min.js','text/javascript')
-                           ->appendFile($view->baseUrl().'/js/script.js','text/javascript')                           
+                           ->appendFile($view->baseUrl().'/js/jquery.json-2.3.min.js','text/javascript')                           
                            ->appendFile($view->baseUrl().'/js/fancybox/jquery.mousewheel-3.0.4.pack.js','text/javascript')
                            ->appendFile($view->baseUrl().'/js/fancybox/jquery.fancybox-1.3.4.pack.js','text/javascript');
         

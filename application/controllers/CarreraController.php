@@ -5,7 +5,7 @@ class CarreraController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+        $this->view->headScript()->appendFile($this->view->baseUrl().'/js/carrera.js','text/javascript');
     }
 
     public function indexAction()
