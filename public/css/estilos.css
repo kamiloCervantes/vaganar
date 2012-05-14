@@ -1460,3 +1460,26 @@ p.sponsor{
 #carta-reto-box #jugadores table{
     width: 98%;
 }
+
+#retadores{
+    padding-left: 1em;
+}
+
+#reto-box{
+    overflow: auto;
+    overflow-x: hidden;
+    margin-bottom: 30px;
+}
+
+#clock{
+    position: absolute;
+    background: #95f23c;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 2px;
+}
+
+#jugadores tr{
+    height: 30px;
+}

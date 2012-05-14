@@ -39,6 +39,13 @@
                             </div>
                     </a>
             </div>
+            <br/>
+            <div class="last-race-tienda"><!-- div contenedor cuadro1 -->
+            <h4><img src="imgs/notifi.png" class="centrarimg">Retos</h4>
+            <ul id="retadores">
+                <li><a href="#reto-box" id="aceptarreto">Retador</a></li>
+            </ul>
+        </div>
     </aside>
     <div id="linea-h">
     </div>
@@ -61,5 +68,38 @@
         <hr/>
         <input type="button" value="Enviar Reto"/>
         <input type="button" value="Cancelar"/>
+    </div>
+</div>
+<div style="display:none">
+    <div id="reto-box" class="modal">
+        <div id="clock"></div>
+        <div style="width: 95%">
+            <div id="reto-title">
+            <h2>Reto con %jugador%</h2>
+            <hr/>
+            </div>
+            <div class="pregunta">
+                <ul class="controles">
+                    <li>
+                        <select>
+                            <option>Seleccione una carta...</option>
+                        </select>
+                        <input type="button" value="Usar carta"/>
+                    </li>
+                </ul>
+                <img src="imgs/logan.jpg" width="480">
+                <p>Era lunes por la mañana... faltaba una semana para que empezara el festival
+                pero la escuela aun seguía envuelta en una atmósfera bastante relajada.
+                ¿Realmente planea este instituto celebrar un festival escolar? ¿No debería
+                estar un poco más animado?
+                </p>
+                <ul class="respuestas" id="respuesta">
+                    <li><input type="button" class="btn" value="Respuesta 1"></li>
+                    <li><input type="button" class="btn" value="Respuesta 1"></li>
+                    <li><input type="button" class="btn" value="Respuesta 1"></li>
+                    <li><input type="button" class="btn" value="Respuesta 1"></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

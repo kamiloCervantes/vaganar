@@ -2,6 +2,7 @@ $(init);
 
 var zonaretos = [];
 var notificaciones = [];
+var reto = [];
 
 function init(){
     setUpZonaRetos();
@@ -13,6 +14,14 @@ function init(){
        buscarRetador($(this).val()); 
     });
     $('#retar').fancybox();
+    $('#aceptarreto').fancybox();
+    $('#clock').stopwatch();
+    $('#aceptarreto').on('click',function(){
+        $('.start').click();
+    });
+    $('#respuesta input').on('click',function(){
+        $('.stop').click(); 
+    });
 }
 
 function setUpZonaRetos(){
@@ -129,5 +138,60 @@ function buscarRetador(parametro){
     //console.log(tmp.join('-'));
     $('#jugadores table tr').remove();
     $('#jugadores table').append(factoryRetadores(tmp));
-    console.log(factoryRetadores(tmp));
+}
+
+function retosFactory(){
+    var prueba_html = '<div style="display:none" class=".historias"><div id="historia-prueba">'
+                      +      '<div class="row">'
+                      +         '<h2>'+historias[idhistoria].titulo+' ('+historias[idhistoria].puntos+' puntos)</h2>'
+                      +      '<hr>'
+                      +     ' <div class="span6">'
+                      +         ' <div class="center">'
+                      +             '<img src="'+historias[idhistoria].logo_max+'" style="width: 200px;">'
+                      +         '</div>'
+                      +      '</div>'
+                      +      '<div class="span6" style="float:right;">'
+                      +          '<div class="sponsor">'
+                      +              '<p class="sponsor">Patrocinador:</p>'
+                      +              '<img src="'+historias[idhistoria].patrocinador_logo+'">'
+                      +              '<p>'+historias[idhistoria].patrocinador+'</p>'
+                      +          '</div>'
+                      +          '<div class="pregunta">'
+                      +              '<p>'+historias[idhistoria].enunciado+'</p>'
+                      +              '<ul class="respuestas" id="respuesta">'
+                                      for(i=0;i<historias[idhistoria].respuestas.length;i++)
+                                          {
+                                             prueba_html += '<li><input type="button" id="'+i+'" value="'+historias[idhistoria].respuestas[i]+'"></li>'
+                                          }
+                      prueba_html += '</ul>'
+                      +              '<ul class="controles">'
+                      +                  '<li>'
+                      +                      '<select>'
+                      +                          '<option>Seleccione una carta...</option>'
+                                      for(i=0;i<historias[idhistoria].cartas.length;i++)
+                                          {
+                                             prueba_html += '<option>'+historias[idhistoria].cartas[i]+'</option>'
+                                          }
+                     
+                      prueba_html += '</select>'
+                      +                      '<input type="button" value="Usar"/>'
+                      +                  '</li>'
+                      +              '</ul>'
+                      +          '</div>'
+                      +      '</div>'
+                      +   '</div>'
+                      +   '</div></div>';
+      return prueba_html;
+
+}
+
+function addReto(titulo, enunciado, puntos, correcta){
+    var tmp = [];
+    tmp.titulo = titulo; 
+    tmp.enunciado = enunciado;
+    tmp.respuestas = [];
+    tmp.cartas = [];
+    tmp.puntos = puntos;
+    tmp.correcta = correcta;
+    reto = tmp;
 }
