@@ -4,3 +4,17 @@
     <a class="btn" href="/admin/Patrocinador/agregar"><i class="icon-plus"></i> Agregar patrocinador</a>
 </div>
 <hr/>
+<table class="table table-striped" id="publicaciones-list">
+	 	<tr>
+	 		<th>&nbsp;</th>
+	 		<th>Nombre del patrocinador</th>
+	 		<th>Logo del patrocinador</th>
+	 	</tr>
+                <?php foreach ($this->patrocinadores as $patrocinador) { ?>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><?= $patrocinador->getNombre() ?></td>
+                    <td><?= $patrocinador->getLogo() ?></td>
+                </tr>
+                <?php } ?>
+	  </table>

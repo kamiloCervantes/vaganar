@@ -10,16 +10,20 @@ class Admin_PatrocinadorController extends Zend_Controller_Action
      *
      */
     private $_em = null;
+    
+    private $redirector = null;
 
     public function init()
     {
         $registry = Zend_Registry::getInstance();
         $this->_em = $registry->entitymanager;
+        $this->redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('Redirector');
     }
 
     public function indexAction()
     {
-        // action body
+        $patrocinadores = $this->_em->getRepository('Application_Model_Patrocinadores')->findAll();
+        $this->view->patrocinadores = $patrocinadores;
     }
 
     public function agregarAction()
@@ -34,6 +38,8 @@ class Admin_PatrocinadorController extends Zend_Controller_Action
             $patrocinador->setLogo($this->getRequest()->getParam("logo"));
             $this->_em->persist($patrocinador);
             $this->_em->flush();
+            
+            $this->redirector->gotoSimpleAndExit('index','Patrocinador','admin');
         }
 
     }

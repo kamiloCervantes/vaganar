@@ -26,6 +26,14 @@ class Application_Model_Patrocinadores {
         $this->logo = $logo;
     }
     
+    public function getNombre(){
+        return $this->nombre;
+    }
+    
+     public function getLogo(){
+        return $this->logo;
+    }
+    
 }
 
 ?>
