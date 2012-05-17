@@ -22,10 +22,11 @@ function init(){
     $('#respuesta input').on('click',function(){
         $('.stop').click(); 
     });
+    $('#enviarreto').on('click', enviarSolicitudReto);
 }
 
 function setUpZonaRetos(){
-    zonaretos.retos = {};
+    zonaretos.retos = [];
     zonaretos.notificaciones = [];
     zonaretos.jugadores = [];
     zonaretos.cartas = [];
@@ -43,7 +44,6 @@ function addJugador(nombre,rank,puntos,online,idjugador){
     var tmp = [];
     tmp.nombre = nombre;
     tmp.rank = rank;
-    tmp.cartas = [];
     tmp.puntos = puntos;
     tmp.online = online;
     tmp.idjugador = idjugador;
@@ -60,7 +60,7 @@ function addRetador(nombre, idjugador){
 function factoryJugadores(){
     var jugadores_html = '';
     for(var i=0;i<zonaretos.jugadores.length;i++){
-        jugadores_html += '<tr><td>'+zonaretos.jugadores[i].nombre+'</td><td class="alinear">'+zonaretos.jugadores[i].rank+'</td><td class="alinear"><a href="#">Ver Cartas</a></td><td class="alinear">'+zonaretos.jugadores[i].puntos+'</td><td class="centrar"><img src="imgs/check.png"></td></tr>';
+        jugadores_html += '<tr><td>'+zonaretos.jugadores[i].nombre+'</td><td class="alinear">'+zonaretos.jugadores[i].rank+'</td><td class="alinear">'+zonaretos.jugadores[i].puntos+'</td><td class="centrar"><img src="imgs/check.png"></td></tr>';
     }
     return jugadores_html;
 }
@@ -194,4 +194,33 @@ function addReto(titulo, enunciado, puntos, correcta){
     tmp.puntos = puntos;
     tmp.correcta = correcta;
     reto = tmp;
+}
+
+function addSolicitudReto(nombre_jugador,monto_apuesta){
+    var tmp = [];
+    tmp.nombre_jugador = nombre_jugador;
+    tmp.monto_apuesta = monto_apuesta; 
+    zonaretos.retos.push(tmp);
+}
+
+function factorySolicitudReto(idreto){
+    var html = '<li><div class="reto-single"><h2>Reto con<br/> '+zonaretos.retos[idreto].nombre_jugador+'</h2><p class="details">Apuesta:'+zonaretos.retos[idreto].monto_apuesta+' pts</p></div></li>';
+    return html;
+}
+
+function enviarSolicitudReto(){
+    var nombre_jugador = $('#jugadores input:checked').parent().text();
+    var monto_apuesta = $('input#apuesta').val();
+    addSolicitudReto(nombre_jugador,monto_apuesta);
+    actualizarSolicitudesReto();
+   // console.log($('#jugadores input:checked').parent().text());
+   // console.log($('input#apuesta').val());
+}
+
+function actualizarSolicitudesReto(){
+    $('#retadores li').remove();
+    for(var i=0;i<zonaretos.retos.length;i++){
+        $('#retadores').append(factorySolicitudReto(i));
+    }
+    
 }

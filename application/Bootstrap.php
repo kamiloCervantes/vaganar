@@ -2,7 +2,6 @@
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
-
     
     protected function _initViewHelpers()
     {
@@ -35,6 +34,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                     array('scan' => Zend_Translate::LOCALE_DIRECTORY)
             );
             Zend_Validate_Abstract::setDefaultTranslator($translator);
+    }
+    
+    protected function _initPlugins(){ 
+        $this->bootstrap('frontController'); 
+        $plugin = new Application_Plugin_Layout(); 
+        $this->frontController->registerPlugin($plugin); 
     }
 }
 
