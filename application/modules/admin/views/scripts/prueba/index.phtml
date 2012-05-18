@@ -4,3 +4,19 @@
     <a class="btn" href="/admin/Prueba/agregar"><i class="icon-plus"></i> Agregar prueba</a>
 </div>
 <hr/>
+<table class="table table-striped" id="pruebas-list">
+	 	<tr>
+	 		<th>&nbsp;</th>
+	 		<th>Título</th>
+	 		<th>Logo</th>
+                        <th>Patrocinador</th>
+	 	</tr>
+                <?php foreach ($this->pruebas as $prueba) { ?>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><?= $prueba->getTitulo() ?></td>
+                    <td><?= $prueba->getLogo_prueba() ?></td>
+                    <td><?= $prueba->getPatrocinadores()->get(0)->getNombre()?></td>
+                </tr>
+                <?php } ?>
+	  </table>

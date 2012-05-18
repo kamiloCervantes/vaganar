@@ -17,6 +17,7 @@ class Application_Model_Patrocinadores {
     
     /** @Column(type="string") */
     private $logo;
+    
 
     public function setNombre($nombre){
         $this->nombre = $nombre;
@@ -30,8 +31,12 @@ class Application_Model_Patrocinadores {
         return $this->nombre;
     }
     
-     public function getLogo(){
+    public function getLogo(){
         return $this->logo;
+    }
+    
+    public function getId(){
+        return $this->id;
     }
     
 }

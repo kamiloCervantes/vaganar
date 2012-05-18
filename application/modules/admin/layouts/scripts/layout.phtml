@@ -8,8 +8,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <?= $this->headLink() ?>
-    <!--<link href="<?= $this->baseUrl() ?>/adm/css/bootstrap.css" rel="stylesheet">-->
+    <link href="<?= $this->baseUrl() ?>/adm/css/bootstrap.css" rel="stylesheet">
     <link href="<?= $this->baseUrl() ?>/adm/css/admin.css" rel="stylesheet">
     <link href="<?= $this->baseUrl() ?>/adm/css/bootstrap-responsive.css" rel="stylesheet">
     <!-- Le fav and touch icons -->
@@ -75,21 +74,6 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<?= $this->baseUrl() ?>/js/jquery.js"></script>
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-transition.js"></script>
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-alert.js"></script>
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-modal.js"></script>
-
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-dropdown.js"></script>
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-scrollspy.js"></script>
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-tab.js"></script>
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-tooltip.js"></script>
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-popover.js"></script>
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-button.js"></script>
-
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-collapse.js"></script>
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-carousel.js"></script>
-    <script src="<?= $this->baseUrl() ?>/adm/js/bootstrap-typeahead.js"></script>
-
+    <?= $this->headScript() ?>
   </body>
 </html>
