@@ -239,10 +239,10 @@ function cargarHistorias(){
     addHistoria(
                 0,23,
                 'Prueba 1',
-                'imgs/chica-aguila.jpg',
-                'imgs/chica-aguila-max.jpg',
+                '/imgs/chica-aguila.jpg',
+                '/imgs/chica-aguila-max.jpg',
                 'Bavaria',
-                'imgs/babaria-logo.png',
+                '/imgs/babaria-logo.png',
                 '¿Cual es el producto más vendido de Bavaria?',
                 '100',
                 'Aguila'
@@ -252,10 +252,10 @@ function cargarHistorias(){
     addHistoria(
                 1,33,
                 'Prueba Chevrolet',
-                'imgs/camaro.jpg',
-                'imgs/camaro.jpg',
+                '/imgs/camaro.jpg',
+                '/imgs/camaro.jpg',
                 'Chevrolet',
-                'imgs/chevrolet-logo.png',
+                '/imgs/chevrolet-logo.png',
                 '¿En que película salió este automóvil? (Chevrolet Camaro SS)',
                 '100',
                 'Transformers'
@@ -265,10 +265,10 @@ function cargarHistorias(){
     addHistoria(
                 2,89,
                 'Prueba 3',
-                'imgs/chica-aguila.jpg',
-                'imgs/chica-aguila-max.jpg',
+                '/imgs/chica-aguila.jpg',
+                '/imgs/chica-aguila-max.jpg',
                 'Bavaria',
-                'imgs/babaria-logo.png',
+                '/imgs/babaria-logo.png',
                 '¿Cual es el producto más vendido de Bavaria?',
                 '100',
                 'Aguila'
@@ -278,10 +278,10 @@ function cargarHistorias(){
     addHistoria(
                 3,87,
                 'Prueba 4',
-                'imgs/chica-aguila.jpg',
-                'imgs/chica-aguila-max.jpg',
+                '/imgs/chica-aguila.jpg',
+                '/imgs/chica-aguila-max.jpg',
                 'Bavaria',
-                'imgs/babaria-logo.png',
+                '/imgs/babaria-logo.png',
                 '¿Cual es el producto más vendido de Bavaria?',
                 '100',
                 'Aguila'

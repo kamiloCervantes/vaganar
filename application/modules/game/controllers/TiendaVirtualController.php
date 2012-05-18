@@ -1,6 +1,6 @@
 <?php
 
-class Game_IndexController extends Zend_Controller_Action
+class Game_TiendaVirtualController extends Zend_Controller_Action
 {
 
     public function init()
