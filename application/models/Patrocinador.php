@@ -1,17 +1,15 @@
 <?php
-
-/*
+/* 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
 /**
- * Description of Bootstrap
+ * Description of Patrocinador
  *
  * @author kamilo
  */
-class Admin_Bootstrap extends Zend_Application_Module_Bootstrap{
+class Patrocinador {
     //put your code here
 }
-
 ?>

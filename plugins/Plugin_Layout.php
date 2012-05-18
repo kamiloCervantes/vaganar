@@ -6,11 +6,11 @@
  */
 
 /**
- * Description of Bootstrap
+ * Description of Plugin_Layout
  *
  * @author kamilo
  */
-class Admin_Bootstrap extends Zend_Application_Module_Bootstrap{
+class Plugin_Layout {
     //put your code here
 }
 
