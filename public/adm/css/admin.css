@@ -19,3 +19,19 @@ root {
 .autocomplete .selected { background:#F0F0F0; }
 .autocomplete div { padding:2px 5px; white-space:nowrap; overflow:hidden; }
 .autocomplete strong { font-weight:normal; color:#3399FF; }
+
+
+.carrera-element{
+    display: inline;
+}
+
+.pruebas_scroll{
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.ciudades, .instituciones{
+    display: inline;
+    margin-left: 3px;
+    margin-bottom: 3px;
+}

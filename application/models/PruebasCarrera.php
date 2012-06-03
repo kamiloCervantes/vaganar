@@ -36,6 +36,14 @@ class Application_Model_PruebasCarrera extends Application_Model_PruebasBase{
         return $this->patrocinadores;
     }
     
+    public function getId(){
+        return $this->id;
+    }
+    
+    public function getRespuesta(){
+        return $this->respuesta;
+    }
+    
 }
 
 ?>

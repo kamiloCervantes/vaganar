@@ -1495,7 +1495,7 @@ p.sponsor{
 }
 
 #retadores li:hover{
-    background: #78A500 url('../imgs/reto_peq.jpg') 2px 2px no-repeat;
+    background: #78A500 url('../imgs/reto_peq.jpg') 2px 13px no-repeat;
     cursor: pointer;
 }
 

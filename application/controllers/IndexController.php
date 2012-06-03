@@ -1,8 +1,8 @@
 <?php
 
-class Game_IndexController extends Zend_Controller_Action
+class IndexController extends Zend_Controller_Action
 {
-
+    
     public function init()
     {
         /* Initialize action controller here */
@@ -10,7 +10,8 @@ class Game_IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('Redirector');
+        $redirector->gotoSimpleAndExit('index','index','game');
     }
 
 

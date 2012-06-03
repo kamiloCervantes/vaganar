@@ -204,7 +204,7 @@ function addSolicitudReto(nombre_jugador,monto_apuesta){
 }
 
 function factorySolicitudReto(idreto){
-    var html = '<li><div class="reto-single"><h2>Reto con<br/> '+zonaretos.retos[idreto].nombre_jugador+'</h2><p class="details">Apuesta:'+zonaretos.retos[idreto].monto_apuesta+' pts</p></div></li>';
+    var html = '<li><a class="iniciar-reto" href="#reto-box"><div class="reto-single"><h2>Reto con<br/> '+zonaretos.retos[idreto].nombre_jugador+'</h2><p class="details">Apuesta:'+zonaretos.retos[idreto].monto_apuesta+' pts</p></div></a></li>';
     return html;
 }
 
@@ -222,5 +222,6 @@ function actualizarSolicitudesReto(){
     for(var i=0;i<zonaretos.retos.length;i++){
         $('#retadores').append(factorySolicitudReto(i));
     }
+    $('.iniciar-reto').fancybox();
     
 }
