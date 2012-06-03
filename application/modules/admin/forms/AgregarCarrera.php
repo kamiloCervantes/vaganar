@@ -56,7 +56,7 @@ class Admin_Form_AgregarCarrera extends Zend_Form
             $this->addElement($prueba_element);
             $pruebas_members[] = 'prueba'.$prueba->getId();    
         }
-        if(!$pruebas_members){
+        if($pruebas_members != null){
             $this->addDisplayGroup($pruebas_members,'pruebas',array('legend' => 'Pruebas de la carrera'));
             $pruebas_group = $this->getDisplayGroup('pruebas');
             $pruebas_group->setDecorators(array(

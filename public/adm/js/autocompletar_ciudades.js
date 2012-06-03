@@ -14,18 +14,30 @@ function init(){
                 serviceUrl:'/admin/Ciudades/autocompletar',
                 onSelect: function(value, data)
                 { 
-                    agregarCiudad(value);
+                    agregarCiudad(value,data);
                 }
               };
     a = $('#ciudad').autocomplete(options);
-    
+    options_inst = { 
+                        serviceUrl:'/admin/Instituciones/autocompletar',
+                        onSelect: function(value, data)
+                        { 
+                            agregarInstitucion(value,data);
+                        },
+                        params:
+                            {
+                                ciudades: ciudades.join(',')
+                            }
+                    };
+    a_inst = $('#institucion').autocomplete(options_inst);
     
 }
 
-function agregarCiudad(value){
+function agregarCiudad(value,data){
     $('#ciudad').val('');
     if(ciudades.indexOf(value)==-1)
-        ciudades.push(value);
+        //ciudades.push(value);
+        ciudades[data] = value;
     actualizarCiudades();
 }
 
@@ -45,24 +57,25 @@ function actualizarCiudades(){
     }
     $('#ciudades_id').val(ciudades_id);
     $('.quitarciudad').on('click', quitarCiudad);
-    options_inst = { 
+    a_inst.setOptions({ 
                         serviceUrl:'/admin/Instituciones/autocompletar',
                         onSelect: function(value, data)
                         { 
-                            agregarInstitucion(value);
+                            
+                            agregarInstitucion(value,data);
                         },
                         params:
                             {
                                 ciudades: ciudades.join(',')
                             }
-                    };
-    a_inst = $('#institucion').autocomplete(options_inst);
+                    }); 
 }
 
-function agregarInstitucion(value){
+function agregarInstitucion(value,data){
     $('#institucion').val('');
     if(instituciones.indexOf(value)==-1)
-        instituciones.push(value);
+        //instituciones.push(value);
+        instituciones[data] = value;
     actualizarInstituciones();
 }
 
@@ -71,8 +84,15 @@ function actualizarInstituciones(){
     var instituciones_id = '';
     for(institucion in instituciones){
         $('#institucion').after('<p class="instituciones label label-info"><a class="quitarinstitucion" id="'+institucion+'" href="#"><i class="icon-remove icon-white"></i></a> '+instituciones[institucion]+'</p>');
-        instituciones_id += instituciones+';';
+        instituciones_id += institucion+';';
     }
     $('#instituciones_id').val(instituciones_id);
     $('.quitarinstitucion').on('click', quitarInstitucion);
+}
+
+function quitarInstitucion(event){
+    event.preventDefault();
+    var institucion = $(this).attr('id');
+    instituciones.splice(institucion,1);
+    actualizarInstituciones();
 }

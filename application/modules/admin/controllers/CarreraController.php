@@ -45,13 +45,16 @@ class Admin_CarreraController extends Zend_Controller_Action
                   $carrera->getPruebas()->add($tmp);
               }
            }
-           //$ciudad = $this->_em->find("Application_Model_Ciudades", $this->getRequest()->getParam("ciudad_id"));
-           //$carrera->setCiudad($ciudad);
-           /*$ciudades_id = explode(';', $this->getRequest()->getParam('ciudades_id'));
+           $ciudades_id = explode(';', $this->getRequest()->getParam('ciudades_id'));
            foreach($ciudades_id as $ciudad_id){
                $ciudad = $this->_em->find("Application_Model_Ciudades", $ciudad_id);
                $carrera->getCiudad()->add($ciudad);
-           }*/
+           }
+           $instituciones_id = explode(';', $this->getRequest()->getParam('instituciones_id'));
+           foreach($instituciones_id as $institucion_id){
+               $institucion = $this->_em->find("Application_Model_Instituciones", $institucion_id);
+               $carrera->getInstituciones()->add($institucion);
+           }
            $this->_em->persist($carrera);
            $this->_em->flush();
            $this->redirector->gotoSimpleAndExit('index','Carrera','admin');     

@@ -46,8 +46,7 @@ class Admin_InstitucionesController extends Zend_Controller_Action
             }
         }
         $json = array("query" => $query, "suggestions" => $matches, "data"=> $matches_data);
-        
-        //header('Content-type: application/json');
+        header('Content-type: application/json');
         echo Zend_Json::encode($json);
     }
     

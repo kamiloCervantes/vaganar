@@ -43,10 +43,20 @@ class Application_Model_Carreras
      */
     private $ciudad;
     
+    /**
+     * @ManyToMany(targetEntity="Application_Model_Instituciones")
+     * @JoinTable(name="carrera_instituciones",
+     *      joinColumns={@JoinColumn(name="carrera_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="institucion_id", referencedColumnName="id")}
+     *      )
+     */
+    private $instituciones;
+    
     public function __construct()
     {
         $this->pruebas = new ArrayCollection();
         $this->ciudad = new ArrayCollection();
+        $this->instituciones = new ArrayCollection();
     }
     
     public function setNombre($nombre){
@@ -71,6 +81,10 @@ class Application_Model_Carreras
     
     public function getPruebas(){
         return $this->pruebas;
+    }
+    
+    public function getInstituciones(){
+        return $this->instituciones;
     }
 }
 
