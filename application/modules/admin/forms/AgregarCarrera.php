@@ -79,11 +79,30 @@ class Admin_Form_AgregarCarrera extends Zend_Form
         
         $this->instituciones_id = new Zend_Form_Element_Hidden('instituciones_id');
         
+        $this->niveles = new Cweb_Form_Element_Niveles('niveles');
+        $this->niveles->setLabel('Niveles de la carrera:');
+        $this->niveles->setAttrib('campos', 3);
+        $this->niveles->setAttrib('campo_1', 'Nombre');
+        $this->niveles->setAttrib('campo_2', 'Puntos mínimos');
+        $this->niveles->setAttrib('campo_3', 'Rango');
+        
+        $this->niveles_data = new Zend_Form_Element_Hidden('niveles_data');
+        
         $this->valor = new Zend_Form_Element_Text('valor');
         $this->valor->setLabel('Valor de la carrera:')
                        ->setRequired(true)
                        ->setAttrib('class', 'width-total')
                        ->addValidator('NotEmpty');
+        
+        $this->premios_data = new Zend_Form_Element_Hidden('premios_data');
+        
+        $this->premios = new Cweb_Form_Element_Asociacion('premios');
+        $this->premios->setLabel('Premios de la carrera:');
+        $this->premios->setAttrib('campos', 2);
+        $this->premios->setAttrib('campo_1', 'Posición');
+        $this->premios->setAttrib('campo_2', 'Premio');
+        
+        $this->niveles_data = new Zend_Form_Element_Hidden('niveles_data');
         
         $this->submit = new Zend_Form_Element_Submit('Guardar');
         $this->submit->setAttrib('class', 'btn btn-primary')

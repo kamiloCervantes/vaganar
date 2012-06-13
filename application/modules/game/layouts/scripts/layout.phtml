@@ -1,59 +1,72 @@
 <!DOCTYPE html>
-<html><head>
-		<title>VaGanar.com</title>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<?= $this->headLink() ?>
-                <?= $this->headScript() ?>
-	</head>
-	<body>
-		<header class="headerPage">
-			<div id="boxLogo">
-                            <a href="/">
-                                <ul>
-					<li><img src="<?= $this->baseUrl()?>/imgs/logo-1st.png" class="centerHeader"></li>
-					<li><h1 id="text-logo">VaGanar.com</h1></li>
-				</ul>
-                            </a>
-			</div>
-                    
-                    <?php 
-                    if($this->identity){ ?>
-			<div id="profile-options">
-				<ul>
-					<li class="flotar"><img src="/imgs/foto.png" class="centrarimg"></li>
-					<li class="flotar">
-						<ul>
-							<li><a href="perfil.html">Mi Perfil</a></li>
-							<li><a href="/Carrera">La Carrera</a></li>
-							<li><a href="#">Salir</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-                     <?php } else {  ?>
-                    <div id="login">
-                        <a href="/Auth/login">Iniciar Sesión</a>
-                    </div>
-                     <?php } ?>
-		</header>
-		<nav>
-			<img class="deco1" src="/imgs/deco.png">
-			<ul id="navprincipal">
-				<li><a href="/game/Carrera">La Carrera</a></li>
-				<li><a href="/game/Zona-Retos">Zona de Retos</a></li>
-				<li><a href="/game/Adquirir-Cartas">Adquirir Cartas</a></li>
-				<li><a href="/game/Tienda-Virtual">Tienda Virtual</a></li>
-			</ul>
-			<img class="deco2" src="<?= $this->baseUrl()?>/imgs/deco.png">
-		</nav>
-		<div id="base-contenido">
-			
-                                    <?php echo $this->layout()->content; ?>
-				
-		</div>
-		<footer>
-			<h5>Diseño por: Deimer Herrera © Copyright MaratonQM</h5>
-		</footer>
-</body>
-</html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>VaGanar.com :: El juego donde usted siempre gana!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <!-- Le styles -->
+    <link href="/gm/css/bootstrap.css" rel="stylesheet">
+    <link href="/gm/css/jquery.jscrollpane.css" rel="stylesheet" media="all">
+    <link href="/gm/css/jquery.jscrollpane.lozenge.css" rel="stylesheet" media="all">
+    <link href="/gm/css/style.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="/gm/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="span2">
+                <p>&nbsp;</p>
+            </div>
+            <div class="span8" id="main-game">
+                <?php echo $this->layout()->content; ?>
+            </div>
+            <div class="span2">
+            <p>&nbsp;</p>
+        </div>
+        </div>
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/gm/js/jquery.js"></script>
+    <script src="/gm/js/prefixfree.min.js"></script>
+    <script src="/gm/js/jquery.jscrollpane.min.js"></script>
+    <script src="/gm/js/scroll.js"></script>
+    <script src="/gm/js/bootstrap-transition.js"></script>
+    <script src="/gm/js/bootstrap-alert.js"></script>
+    <script src="/gm/js/bootstrap-modal.js"></script>
+    <script src="/gm/js/bootstrap-dropdown.js"></script>
+    <script src="/gm/js/bootstrap-scrollspy.js"></script>
+    <script src="/gm/js/bootstrap-tab.js"></script>
+    <script src="/gm/js/bootstrap-tooltip.js"></script>
+    <script src="/gm/js/bootstrap-popover.js"></script>
+    <script src="/gm/js/bootstrap-button.js"></script>
+    <script src="/gm/js/bootstrap-collapse.js"></script>
+    <script src="/gm/js/bootstrap-carousel.js"></script>
+    <script src="/gm/js/bootstrap-typeahead.js"></script>
+
+  
+
+</body></html>

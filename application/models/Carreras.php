@@ -34,9 +34,10 @@ class Application_Model_Carreras
     /** @Column(type="date") */
     private $fechafin;
     
+    
     /**
-     * @ManyToMany(targetEntity="Application_Model_Ciudades")
-     * @JoinTable(name="carrera_ciudades",
+     * @ManyToMany(targetEntity="Application_Model_Ciudades", cascade={"all"})
+     * @JoinTable(name="carreras_ciudades",
      *      joinColumns={@JoinColumn(name="carrera_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="ciudad_id", referencedColumnName="id")}
      *      )
@@ -44,19 +45,39 @@ class Application_Model_Carreras
     private $ciudad;
     
     /**
-     * @ManyToMany(targetEntity="Application_Model_Instituciones")
-     * @JoinTable(name="carrera_instituciones",
+     * @ManyToMany(targetEntity="Application_Model_Instituciones", cascade={"all"})
+     * @JoinTable(name="carreras_instituciones",
      *      joinColumns={@JoinColumn(name="carrera_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="institucion_id", referencedColumnName="id")}
      *      )
      */
     private $instituciones;
     
+    /**
+     * @ManyToMany(targetEntity="Application_Model_Niveles",cascade={"all"})
+     * @JoinTable(name="carreras_niveles",
+     *      joinColumns={@JoinColumn(name="carrera_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="nivel_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $niveles;
+    
+    /**
+     * @ManyToMany(targetEntity="Application_Model_Premios",cascade={"all"})
+     * @JoinTable(name="carreras_premios",
+     *      joinColumns={@JoinColumn(name="carrera_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="premio_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $premios;
+    
     public function __construct()
     {
         $this->pruebas = new ArrayCollection();
         $this->ciudad = new ArrayCollection();
         $this->instituciones = new ArrayCollection();
+        $this->niveles = new ArrayCollection();
+        $this->premios = new ArrayCollection();
     }
     
     public function setNombre($nombre){
@@ -85,6 +106,14 @@ class Application_Model_Carreras
     
     public function getInstituciones(){
         return $this->instituciones;
+    }
+    
+    public function getNiveles(){
+        return $this->niveles;
+    }
+    
+    public function getPremios(){
+        return $this->premios;
     }
 }
 
